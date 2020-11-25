@@ -4,6 +4,8 @@
 
 # Import pandas
 import pandas as pd
+import seaborn as sns
+from matplotlib import pyplot as plt
 
 # Load the CSV data into DataFrames
 super_bowls= pd.read_csv('datasets/super_bowls.csv')
@@ -22,11 +24,8 @@ tv.info()
 halftime_musicians.info()
 
 
-# Reference Plotting
-from matplotlib import pyplot as plt
-get_ipython().run_line_magic('matplotlib', 'inline')
-plt.style.use('seaborn')
-print(super_bowls.head())
+
+
 
 plt.hist(super_bowls.combined_pts)
 plt.xlabel('Combined Points')
@@ -54,9 +53,7 @@ display(super_bowls[super_bowls["difference_pts"] >= 35])
 # Join game and TV data, filtering out SB I because it was split over two networks
 games_tv = pd.merge(tv[tv['super_bowl'] > 1], super_bowls, on='super_bowl')
 
-# Import seaborn
-import seaborn as sns
-print(games_tv.head())
+
 
 # Scatter plot with a linear regression model fit
 sns.regplot(x = games_tv.difference_pts, y= games_tv.share_household, data=games_tv)
