@@ -2,7 +2,7 @@
 
 
 
-# Import pandas
+# Import packages
 import pandas as pd
 import seaborn as sns
 from matplotlib import pyplot as plt
@@ -14,9 +14,9 @@ halftime_musicians= pd.read_csv('datasets/halftime_musicians.csv')
 
 
 # For Reference
-display(super_bowls.head())
-display(tv.head())
-display(halftime_musicians.head())
+(super_bowls.head())
+(tv.head())
+(halftime_musicians.head())
 
 
 tv.info()
@@ -25,16 +25,9 @@ halftime_musicians.info()
 
 
 
-
-
-plt.hist(super_bowls.combined_pts)
-plt.xlabel('Combined Points')
-plt.ylabel('Number of Super Bowls')
-plt.show()
-
 #Highest and lowest combined scores
-display(super_bowls[super_bowls['combined_pts'] > 70])
-display(super_bowls[super_bowls['combined_pts'] < 25])
+(super_bowls[super_bowls['combined_pts'] > 70])
+(super_bowls[super_bowls['combined_pts'] < 25])
 
 
 
@@ -45,8 +38,8 @@ plt.ylabel("Number of Super Bowls")
 plt.show()
 
 # Closest game(s) and biggest blowouts
-display(super_bowls[super_bowls["difference_pts"] == 1])
-display(super_bowls[super_bowls["difference_pts"] >= 35])
+(super_bowls[super_bowls["difference_pts"] == 1])
+(super_bowls[super_bowls["difference_pts"] >= 35])
 
 
 
@@ -111,7 +104,7 @@ plt.show()
 
 # Sort the non-band musicians by number of songs per appearance...
 no_bands = no_bands.sort_values('num_songs', ascending=False)
-display(no_bands.head(15))
+(no_bands.head(15))
 
 
 
