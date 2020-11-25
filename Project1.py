@@ -37,6 +37,7 @@ plt.xlabel('Point Difference')
 plt.ylabel("Number of Super Bowls")
 plt.show()
 
+
 # Closest game(s) and biggest blowouts
 (super_bowls[super_bowls["difference_pts"] == 1])
 (super_bowls[super_bowls["difference_pts"] >= 35])
@@ -53,24 +54,23 @@ sns.regplot(x = games_tv.difference_pts, y= games_tv.share_household, data=games
 
 
 # Create a figure with 3x1 subplot and activate the top subplot
-plt.subplot(3, 1, 1)
+
 plt.plot(tv.super_bowl, tv.avg_us_viewers, color='#648FFF')
 plt.title('Average Number of US Viewers')
+plt.show()
 
 # Activate the middle subplot
-plt.subplot(3, 1, 2)
+
 plt.plot(tv.super_bowl, tv.rating_household, color = "#DC267F")
 plt.title('Household Rating')
+plt.show()
 
 # Activate the bottom subplot
-plt.subplot(3, 1, 3)
+
 plt.plot(tv.super_bowl, tv.ad_cost, color = "#FFB000")
 plt.title('Ad Cost')
 plt.xlabel('SUPER BOWL')
-
-# Improve the spacing between subplots
-plt.tight_layout()
-
+plt.show()
 
 
 
