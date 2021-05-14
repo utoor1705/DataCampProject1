@@ -1,7 +1,5 @@
 ############ Data Camp Project - Super Bowl
 
-
-
 # Import packages
 import pandas as pd
 import seaborn as sns
@@ -12,24 +10,16 @@ super_bowls= pd.read_csv('super_bowls.csv')
 tv= pd.read_csv('tv.csv')
 halftime_musicians= pd.read_csv('halftime_musicians.csv')
 
-
 # For Reference
 (super_bowls.head())
 (tv.head())
 (halftime_musicians.head())
-
-
 tv.info()
-
 halftime_musicians.info()
-
-
 
 #Highest and lowest combined scores
 (super_bowls[super_bowls['combined_pts'] > 70])
 (super_bowls[super_bowls['combined_pts'] < 25])
-
-
 
 # Histogram of point differences
 plt.hist(super_bowls.difference_pts)
@@ -37,36 +27,27 @@ plt.xlabel('Point Difference')
 plt.ylabel("Number of Super Bowls")
 plt.show()
 
-
 # Closest game(s) and biggest blowouts
 (super_bowls[super_bowls["difference_pts"] == 1])
 (super_bowls[super_bowls["difference_pts"] >= 35])
 
-
-
 # Join game and TV data, filtering out SB I because it was split over two networks
 games_tv = pd.merge(tv[tv['super_bowl'] > 1], super_bowls, on='super_bowl')
-
-
 
 # Scatter plot with a linear regression model fit
 sns.regplot(x = games_tv.difference_pts, y= games_tv.share_household, data=games_tv)
 
-
 # Create a figure with 3x1 subplot and activate the top subplot
-
 plt.plot(tv.super_bowl, tv.avg_us_viewers, color='#648FFF')
 plt.title('Average Number of US Viewers')
 plt.show()
 
 # Activate the middle subplot
-
 plt.plot(tv.super_bowl, tv.rating_household, color = "#DC267F")
 plt.title('Household Rating')
 plt.show()
 
 # Activate the bottom subplot
-
 plt.plot(tv.super_bowl, tv.ad_cost, color = "#FFB000")
 plt.title('Ad Cost')
 plt.xlabel('SUPER BOWL')
@@ -74,22 +55,11 @@ plt.show()
 
 
 
-
-
-
-
 # Halftime musicians for Super Bowls up to and including Super Bowl XXVII
-
-
 (halftime_musicians[halftime_musicians.super_bowl <= 27])
-
-
 # ## 8. Who has the most halftime show appearances?
-
 halftime_appearances = halftime_musicians.groupby('musician').count()
 halftime_appearances[halftime_appearances.super_bowl > 1]
-
-
 
 # Filter out most marching bands
 no_bands = halftime_musicians[~halftime_musicians.musician.str.contains('Marching')]
@@ -105,8 +75,6 @@ plt.show()
 # Sort the non-band musicians by number of songs per appearance...
 no_bands = no_bands.sort_values('num_songs', ascending=False)
 (no_bands.head(15))
-
-
 
 # 2018-2019 conference champions
 patriots = 'New England Patriots'
